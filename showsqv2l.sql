@@ -49,10 +49,29 @@ CREATE TABLE IF NOT EXISTS `companies` (
 
 -- Dump dei dati della tabella ccsud_gestionale.companies: ~4 rows (circa)
 INSERT INTO `companies` (`id`, `name`) VALUES
-	(1, 'CCSUD'),
-	(2, 'CGM'),
-	(3, 'CCNORD'),
-	(4, 'SAN LUCA HOTEL');
+        (1, 'CCSUD'),
+        (2, 'CGM'),
+        (3, 'CCNORD'),
+        (4, 'SAN LUCA HOTEL');
+
+-- Dump della struttura di tabella ccsud_gestionale.office_licenses
+CREATE TABLE IF NOT EXISTS `office_licenses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(150) NOT NULL,
+  `license_key` varchar(191) NOT NULL,
+  `notes` text DEFAULT NULL,
+  `assigned_hostname` varchar(150) DEFAULT NULL,
+  `assigned_at` datetime DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `license_key` (`license_key`),
+  KEY `assigned_hostname` (`assigned_hostname`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- Dump dei dati della tabella ccsud_gestionale.office_licenses: ~2 rows (circa)
+INSERT INTO `office_licenses` (`id`, `product_name`, `license_key`, `notes`, `assigned_hostname`, `assigned_at`, `created_at`) VALUES
+        (1, 'Microsoft 365 Business Standard', 'MS365-STD-001', 'Licenza annuale per postazione amministrazione', 'PC-UFFICIO-01', '2025-01-10 09:15:00', '2025-01-10 09:00:00'),
+        (2, 'Microsoft Office 2021 Professional', 'OFFICE21-PRO-002', 'Box fisico conservato in sede centrale', NULL, NULL, '2025-01-10 10:20:00');
 
 -- Dump della struttura di tabella ccsud_gestionale.logs
 CREATE TABLE IF NOT EXISTS `logs` (

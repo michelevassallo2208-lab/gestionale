@@ -23,6 +23,8 @@ $stmt->execute([$_SESSION['user_id']]);
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 $user_role = $user['role'] ?? '';
 
+$currentPage = basename($_SERVER['PHP_SELF'] ?? '');
+
 // Recupera le aziende abilitate all'utente
 $userId = $_SESSION['user_id'];
 $stmt = $db->prepare("
@@ -139,6 +141,9 @@ switch ($selected_company_id) {
     <!-- Nav links -->
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link <?= $currentPage === 'gestione_office.php' ? 'active' : '' ?>" href="../pages/gestione_office.php">Gestione Office</a>
+        </li>
         <?php if (in_array($user_role, ['admin','editor'])): ?>
           <li class="nav-item">
             <a class="nav-link" href="../pages/products.php">Inserisci Prodotto</a>
