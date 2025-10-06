@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Calendario Interattivo</title>
+  <!-- FullCalendar CSS -->
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.css' rel='stylesheet' />
+  <!-- Stili personalizzati -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Calendario Interattivo</h1>
+    
+    <div class="form-container">
+      <h2>Aggiungi Persona</h2>
+      <form id="addPersonForm">
+        <input type="text" id="personName" placeholder="Nome Persona" required>
+        <input type="color" id="personColor" value="#ff0000" required>
+        <button type="submit">Aggiungi</button>
+      </form>
+      <div class="person-list">
+        <h3>Persone Disponibili</h3>
+        <select id="personSelect">
+          <option value="">-- Seleziona Persona --</option>
+        </select>
+      </div>
+    </div>
+    
+    <div id="calendar"></div>
+  </div>
+  
+  <!-- FullCalendar JS -->
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.5/main.min.js'></script>
+  <!-- Script personalizzato -->
+  <script src="script.js"></script>
+</body>
+</html>

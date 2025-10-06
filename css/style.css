@@ -1,0 +1,430 @@
+/* css/style.css */
+
+/* Impostazioni Globali */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    padding-top: 56px; /* Altezza della navbar */
+    min-height: 100vh;
+}
+
+/* Navbar */
+.navbar {
+    /* background-color: #007bff; */ /* Rimosso per consentire a Bootstrap di gestirlo */
+    color: white;
+}
+
+.navbar .btn {
+    border: none;
+    background: none;
+}
+
+.navbar-collapse {
+    transition: max-height 0.3s ease-out; /* Per una transizione più fluida */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        position: fixed;
+        top: 56px; /* Altezza della navbar */
+        left: 0;
+        height: calc(100vh - 56px);
+        overflow-y: auto;
+    }
+    main {
+        margin-left: 250px; /* Larghezza della sidebar */
+    }
+}
+
+@media (max-width: 991.98px) {
+    .sidebar {
+        width: 250px;
+    }
+    /* Classe per mostrare la sidebar offcanvas */
+    .sidebar.active {
+        left: 0;
+    }
+    main {
+        margin-left: 0;
+    }
+}
+
+/* Link nella Sidebar */
+.sidebar .nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+    background-color: #495057;
+    border-radius: 4px;
+}
+
+.sidebar .nav-link i {
+    margin-right: 10px;
+}
+
+/* Footer */
+.footer {
+    /* background-color: #007bff; */ /* Rimosso per consentire a Bootstrap di gestirlo */
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Contenitore principale delle card */
+.maincard-container {
+    margin-bottom: 2rem;
+}
+
+/* Card desktop */
+.card-total {
+    width: 100%; /* Estende al 100% dello spazio */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-total:hover {
+    transform: scale(1.02); /* Effetto hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-total .card-body {
+    padding: 1.5rem;
+    text-align: center; /* Per mobile */
+}
+
+/* Stile mobile */
+@media (max-width: 768px) {
+    .card-total {
+        width: 100%; /* Occupa la larghezza disponibile */
+        margin-bottom: 1rem; /* Spazio tra le card */
+    }
+
+    .card-total .card-body {
+        padding: 1rem; /* Riduce il padding */
+    }
+
+    .card-total .card-title {
+        font-size: 1rem; /* Riduce la dimensione del titolo */
+    }
+
+    .card-total .card-text {
+        font-size: 1.5rem; /* Riduce la dimensione del numero */
+        font-weight: bold;
+    }
+
+    .card-total i {
+        font-size: 2rem; /* Riduce la dimensione dell'icona */
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Stile per la tabella */
+.table-container {
+    margin-top: 1rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.table-responsive {
+    border-radius: 10px;
+    overflow-x: auto; /* Abilita lo scorrimento orizzontale */
+    -webkit-overflow-scrolling: touch; /* Migliora lo scorrimento su iOS */
+}
+
+.table thead {
+    background-color: #343a40;
+    color: #fff;
+}
+
+.table tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Pulsanti di azione */
+.btn {
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* Form Styling */
+form fieldset {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+}
+
+form legend {
+    font-size: 1rem;
+    font-weight: 500;
+    width: auto;
+    padding: 0 10px;
+}
+
+.form-floating > .form-control,
+.form-floating > .form-select,
+.form-floating > textarea {
+    height: calc(3.5rem + 2px);
+}
+
+.form-floating > label {
+    padding: 0.75rem;
+}
+
+.form-label {
+    font-weight: 500;
+}
+
+/* Bottoni */
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+.btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-color: #fff;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-danger:hover,
+.btn-outline-danger:focus {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+}
+
+/* Alert */
+.alert {
+    border-radius: 5px;
+}
+
+/* Tooltip Personalizzati */
+.tooltip-inner {
+    background-color: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    font-size: 0.875rem;
+}
+
+.bs-tooltip-top .tooltip-arrow::before {
+    border-top-color: rgba(0, 0, 0, 0.75);
+}
+
+/* Responsive Typography */
+@media (max-width: 575.98px) {
+    .navbar-brand {
+        font-size: 1rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+    }
+}
+
+/* Migliora la leggibilità dei badge */
+.badge {
+    font-size: 0.9rem;
+}
+
+/* Stile per la barra di ricerca */
+.search-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-bar-input {
+    width: 100%;
+    max-width: 600px;
+    height: 50px;
+    font-size: 1.2rem;
+    padding: 0 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    background-color: #f9f9f9;
+    background-image: linear-gradient(45deg, #ffffff, #f3f3f3);
+    outline: none;
+}
+
+.search-bar-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    background-color: #ffffff;
+}
+
+/* Centra i risultati di ricerca */
+#searchResults {
+    margin-top: 20px;
+}
+
+.category-subcategory-name {
+    font-size: 2rem; /* Aumenta la dimensione secondo necessità */
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Stile personalizzato per la barra di ricerca */
+#searchForm {
+    max-width: 800px; /* Aumenta la larghezza massima */
+    margin: 0 auto; /* Centra la barra di ricerca */
+}
+
+#searchInput {
+    border-radius: 50px; /* Arrotonda gli angoli */
+    transition: box-shadow 0.3s, border-color 0.3s;
+    padding-left: 45px; /* Aggiungi padding interno per l'icona */
+    font-size: 1.1rem; /* Aumenta la dimensione del font */
+    border: 2px solid #007bff; /* Bordi più marcati */
+}
+
+#searchInput:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.5); /* Aggiungi un'ombra più intensa al focus */
+    border-color: #0056b3; /* Cambia il colore del bordo al focus */
+}
+
+#searchForm .fa-search {
+    font-size: 1.2rem; /* Aumenta la dimensione dell'icona */
+    color: #6c757d; /* Colore grigio per l'icona */
+}
+
+#clear-search {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 1.2rem; /* Aumenta la dimensione dell'icona */
+    color: #6c757d; /* Colore grigio per l'icona */
+}
+
+#clear-search:hover {
+    color: #dc3545; /* Cambia colore al passaggio del mouse */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+.error-container, .success-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.error-container h1, .success-container h1 {
+    font-size: 2em;
+    color: #d9534f; /* Red for errors */
+}
+
+.success-container h1 {
+    color: #5bc0de; /* Blue for success */
+}
+
+.error-container p, .success-container p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.error-container a, .success-container a {
+    font-size: 1em;
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.error-container a:hover, .success-container a:hover {
+    text-decoration: underline;
+}
+/* Stile per il messaggio di successo */
+.success-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none; /* Nascondi inizialmente */
+}
+
+.error-message {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+    display: none; /* Nascondi inizialmente */
+}
+.bg-warning {
+    background-color: #ecf007 !important;
+}

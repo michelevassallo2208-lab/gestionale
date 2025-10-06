@@ -1,0 +1,16 @@
+{
+    "host": "185.221.174.55",
+    "username": "mvs@ccsud.it",
+    "password": "Giannidep1!",
+    "remotePath": "",
+    "protocol": "ftp",
+    "port": 21,
+    "fileNameEncoding": "utf8",
+    "autoUpload": true,
+    "autoDelete": false,
+    "autoDownload": false,
+    "ignore": [
+        ".git",
+        "/.vscode"
+    ]
+}
